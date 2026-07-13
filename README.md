@@ -51,5 +51,5 @@ To create the Apple Push Certificate, I went to the [Apple Push Certificates por
 
 Following the steps in the portal, I then uploaded the CSR I got fromMicrosoft Intune, then got my MDM Push Cert.
 ![Apple Push Certificate Confirmation](assets/apple-push-cert-conf.png)
-*This certificate expires yearly, so it will need to be redone to keep managing Apple devices with Intune.
+*This certificate expires yearly, so it will need to be redone to keep managing Apple devices with Intune.*
 
