@@ -24,32 +24,32 @@ Following the lab, I created an Oraganizational Units, created some users with p
 
 Then I worked on entra connect. In order to install this, I needed a server to put it on. I chose to deploy a Windows server 25 to create the entra connect server in my homelab.
 Following similiar options in workstation, I select 2025 and call it ECS01 (entra connect server 01). I gave it 4gb of ram and 2 vcpus like the others, and add a host only adapter like the other machines configured in the domain. I then will start it and install windows standard desktop experience. After it is installed, we need to create an Administrator password. then set a computer name, and install vmware tools then restart. I then downloaded the entra connect server. I ran into an issue where my test account was a guest account, so I had to create an admin account for my tenent. After signing in with this newly created admin account, I needed to sign into the Active Directory server. I used the Administrator account on the Active Directoy server.
-[entra forest account](assets/setup-entra.png)
+![entra forest account](assets/setup-entra.png)
 I selected create new AD account to have entra connect create a new account with the correct permissions to sync.
 
 Once I got it configured, I was able to see the accounts and security groups I created on my AD Server from the Active Directory Lab inside entra in the cloud.
-[entra users](assets/entra-users.png)
+![entra users](assets/entra-users.png)
 *List of the users that show up in entra. NOTE: Since I used corp.local when deploying the lab, the usernames changed to upn.onmicrosoft.com This means that users such as Jane Doe had to log in as jdoe@upn.onmicrosoft.com instead of just jdoe@mycorp*
 
-[entra groups](assets/entra-groups.png)
+![entra groups](assets/entra-groups.png)
 *List fo the groups that show up in entra.*
 
 I went to https://admin.microsoft.com and signed up for an Intune trial then created the intune_test user account that I assigned one of the 25 licenses to in the tenent. 
 After setting up the trial, I was greeted with the Intune home screen.
-[intune home](assets/intune-home.png)
+![intune home](assets/intune-home.png)
 
 The first device I set up was my iPad. First I navigated to Devices -> Enrollment -> Apple
-[intune apple enrollment](assets/intune-apple-enrollment.png)
+![intune apple enrollment](assets/intune-apple-enrollment.png)
 
 An Apple MDM Push Certificate is required to enroll my iPad, so I selected that option
-[Intune configure MDM Push Certificate](assets/intune-configure-mdm-push-cert.png)
+![Intune configure MDM Push Certificate](assets/intune-configure-mdm-push-cert.png)
 
 This requires you to accept an agreement, download your certificate signing request, create an MDM push certificate from Apple, then choose the Apple ID that was used to create the MDM push certificate, and upload the certificate back to intune.
 
 To create the Apple Push Certificate, I went to the [Apple Push Certificates portal](https://identity.apple.com/pushcert).
-[Apple Push Certificates Portal](assets/apple-push-cert-portal.png)
+![Apple Push Certificates Portal](assets/apple-push-cert-portal.png)
 
 Following the steps in the portal, I then uploaded the CSR I got fromMicrosoft Intune, then got my MDM Push Cert.
-[Apple Push Certificate Confirmation](assets/apple-push-cert-conf.png)
+![Apple Push Certificate Confirmation](assets/apple-push-cert-conf.png)
 *This certificate expires yearly, so it will need to be redone to keep managing Apple devices with Intune.
 
