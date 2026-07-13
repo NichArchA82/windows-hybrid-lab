@@ -16,7 +16,7 @@ Additionally, there was another Windows server deployed (Windows 2025) that entr
 Finally intune was tested on an iPad, and an Android s22 phone.
 
 NOTES setting up Active Directory and issues I ran into.
-corp.local was changed to mydomain.local
+corp.local was changed to devarcha.local
 
 Trying to domain join CLIENT01 ran into some issues. The first issue was that we set the dns to DC01 located at the ip 192.168.100.10 and was relying on the dhcp of vmworkstation pro to handle the ip on the host only adapter. The issue that I ran into, was that the dhcp server on vmworkstation handed out a 172.16.x.x ip so CLIENT01 could not reach the DC01 network without a router that was not configured. I opted to set a static ip and assigned CLIENT01 192.168.100.11 and was able to join it to the domain.
 
@@ -29,7 +29,7 @@ I selected create new AD account to have entra connect create a new account with
 
 Once I got it configured, I was able to see the accounts and security groups I created on my AD Server from the Active Directory Lab inside entra in the cloud.
 ![entra users](assets/entra-users.png)
-*List of the users that show up in entra. NOTE: Since I used corp.local when deploying the lab, the usernames changed to upn.onmicrosoft.com This means that users such as Jane Doe had to log in as jdoe@upn.onmicrosoft.com instead of just jdoe@mycorp*
+*List of the users that show up in entra. NOTE: Since I used devarcha.local when deploying the lab, the usernames changed to nicholasarchulettaoutlook.onmicrosoft.com This means that users such as Jane Doe had to log in as jdoe@nicholasarchulettaoutlook.onmicrosoft.com instead of just jdoe@devarcha*
 
 ![entra groups](assets/entra-groups.png)
 *List fo the groups that show up in entra.*
